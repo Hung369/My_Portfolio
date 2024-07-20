@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Header from '@/components/header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,7 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} 
-      bg-zinc-50 text-black`}>{children}</body>
+      bg-zinc-50 text-black relative h-[5000px]`}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
