@@ -1,15 +1,17 @@
 "use client";
 
-import React, {useRef} from "react";
+import React, {useRef, useEffect} from "react";
 import SectionHeading from "./section_heading";
 import { projectsData } from "@/lib/data";
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from "framer-motion";
-
+import { useSectionInView } from "@/lib/hooks";
 
 export default function Projects() {
+    const { ref } = useSectionInView("Projects", 0.5);
+
     return (
-        <section id="projects" className="scroll-mt-28">
+        <section ref={ref} id="projects" className="scroll-mt-28">
             <SectionHeading>My Projects</SectionHeading>
             <div>
                 {
@@ -41,7 +43,7 @@ function Project({ title, description, tags, imageUrl }: ProjectProps) {
           scale: scaleProgess,
           opacity: opacityProgess,
         }}
-        className="group mb-3 sm:mb-8 last:mb-0">
+        className="group mb-8 sm:mb-10 last:mb-0">
         <section className="bg-gray-300 max-w-[60rem] border-black/5 overflow-hidden sm:pr-8 sm:mb-8 relative sm:h-[20rem] 
             hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20"
         >
